@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LibFibonacci\LibFibonacci.csproj" />
+    <ProjectReference Include="..\FibonacciCalc\LibFibonacci.csproj" />
   </ItemGroup>
 
 </Project>
