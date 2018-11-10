@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RedisApplicationTemplate.Pages
+namespace CodeCampRazorLib.MyFeature.Pages
 {
-    public class PrivacyModel : PageModel
+    public class Page1Model : PageModel
     {
         public void OnGet()
         {
+
         }
     }
 }
