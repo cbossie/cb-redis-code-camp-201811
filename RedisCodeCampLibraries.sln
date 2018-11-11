@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibFibonacciTest", "LibFibo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibFibonacci", "FibonacciCalc\LibFibonacci.csproj", "{E4C07845-5310-468A-B7D0-AD20AB8C0CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciDemo", "FibonacciDemo\FibonacciDemo.csproj", "{ABEB36EB-7BE8-42A3-BD50-921DFB1866AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FibonacciDemo", "FibonacciDemo\FibonacciDemo.csproj", "{ABEB36EB-7BE8-42A3-BD50-921DFB1866AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherSDK", "WeatherSDK\WeatherSDK.csproj", "{47FB5A37-B87D-4EC4-8F84-391B4F7FB777}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{ABEB36EB-7BE8-42A3-BD50-921DFB1866AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABEB36EB-7BE8-42A3-BD50-921DFB1866AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABEB36EB-7BE8-42A3-BD50-921DFB1866AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47FB5A37-B87D-4EC4-8F84-391B4F7FB777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47FB5A37-B87D-4EC4-8F84-391B4F7FB777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47FB5A37-B87D-4EC4-8F84-391B4F7FB777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47FB5A37-B87D-4EC4-8F84-391B4F7FB777}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
