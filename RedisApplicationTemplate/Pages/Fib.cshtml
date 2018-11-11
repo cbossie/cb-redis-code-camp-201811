@@ -1,0 +1,47 @@
+﻿@page
+@model FibModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+<h2>Enter an Integer Indicating the nth Fibonacci Sequence</h2>
+
+
+</div>
+<div class="row">
+    <form method="post">
+
+        <div class="form-group">
+            <label asp-for="Sequence">N</label>
+
+            <input asp-for="Sequence" />
+            <span asp-validation-for="Sequence" class="text-danger"></span>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+@if (Model.Success.HasValue)
+{
+    <hr/>
+    <div class="row">
+        @if (@Model.Success.Value)
+        {
+            <span class="h3">Results</span>
+            <div>The result is: <strong>@Model.Number</strong></div>
+        }
+        else
+        {
+            <div class="alert-warning">@Model.Message</div>
+        }
+    </div>
+
+    <div class="row">
+        Elapsed Time (ms) = @Model.MillisecondDuration
+    </div>
+
+}

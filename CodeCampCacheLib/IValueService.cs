@@ -2,7 +2,8 @@
 
 namespace CodeCampCacheLib
 {
-    public class IValueService
+    public interface IValueService
     {
+        string GetNthFibonacci(int n);
     }
 }

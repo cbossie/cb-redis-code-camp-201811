@@ -9,4 +9,19 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CodeCampCacheLib\CodeCampCacheLib.csproj" />
+    <ProjectReference Include="..\FibonacciCalc\LibFibonacci.csproj" />
+    <ProjectReference Include="..\WeatherSDK\WeatherSDK.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\Fib.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\Weather.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

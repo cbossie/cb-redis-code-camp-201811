@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCampCacheLib", "CodeCam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibFibonacci", "FibonacciCalc\LibFibonacci.csproj", "{6EA44F54-EF17-432D-8D3E-F625F852A460}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSDK", "WeatherSDK\WeatherSDK.csproj", "{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6EA44F54-EF17-432D-8D3E-F625F852A460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EA44F54-EF17-432D-8D3E-F625F852A460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EA44F54-EF17-432D-8D3E-F625F852A460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
