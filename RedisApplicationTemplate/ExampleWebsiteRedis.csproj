@@ -8,6 +8,8 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.1.2" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="4.0.4" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Newtonsoft" Version="4.0.4" />
   </ItemGroup>
 
   <ItemGroup>
