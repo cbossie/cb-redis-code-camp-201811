@@ -13,7 +13,7 @@ namespace WeatherSdk
         private const string KEY = "707d5f0eef0a03cf2a4baf2af5012489";
 
         private string RequestUrl(string zipCode) => $"https://api.openweathermap.org/data/2.5/weather?APPID={KEY}&units=imperial&zip={zipCode}";
-        private static readonly HttpClient client = new HttpClient();
+        private readonly HttpClient client = new HttpClient();
 
         public virtual async Task<WeatherReturnCode> GetWeather(string postalCode)
         {

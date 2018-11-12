@@ -1,0 +1,92 @@
+# STRING
+# ------
+# set/get
+SET S1 999 EX 45
+GET S1
+
+# incr/decr
+incr S2
+incr S2
+GET S2
+DECR S2
+GET S2
+
+DEL S1
+DEL S2
+
+# LIST
+# --------
+#Push to front
+LPUSH L1 1 2 3 4 5 6
+
+#Push to end
+RPUSH L1 1 2 3 4 5 6 
+LRANGE L1 0 -1
+
+# Pop from end of list
+LPOP L1
+# Pop from start of list
+RPOP L1
+# Show Items
+LRANGE L1 0 -1
+
+# Drop Items from the list
+ltrim #L1 0 2
+
+
+# HASH
+#----------
+#Set / Create
+HSET H1 Name Craig
+HSET H1 Age 42
+
+# Retrieve one property 
+HGET H1 Name
+
+# Retrieve All
+HGETALL H1
+
+# SET
+#----------
+SADD S1 1 2 3 4 5 6
+SADD S2 2 3 4
+
+#Set Operations
+SUNION S1 S2
+SINTER S1 S2
+
+#Push/Pop
+SPOP S1
+
+#Count
+SCARD S1
+
+#Members
+SMEMBERS S1
+
+
+#SORTED SET
+#-----------
+# Add / Replace
+ZADD Z1 1040 Craig
+ZADD Z1 1050 John
+ZADD Z1 1080 Susan
+
+# Show
+ZRANGE Z1 0 -1
+ZRANGE Z1 0 -1 WITHSCORES
+ZREVRANGE Z1 0 -1
+ZREVRANGE Z1 0 -1 WITHSCORES
+
+# Range
+ZRANGEBYSCORE Z1 -inf 1050
+
+# Rank
+ZRANK Z1 John
+
+
+# HyperLogLog
+#-----------
+PFADD hllKey 1 3 5 6 8 9 3 5 4 2 1 3 2 3 4 5 2 4 2 3 4
+PFCOUNT hllKey
+
