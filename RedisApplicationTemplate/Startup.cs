@@ -42,11 +42,27 @@ namespace RedisApplicationTemplate
             //services.AddTransient<IValueService, ValueService>();
             services.AddTransient<IValueService, RedisValueService>();
 
-            services.AddTransient<IWeatherService, WeatherService>();
+            // We will inject the new Weather service(with caching) and disable the old one
+            //services.AddTransient<IWeatherService, WeatherService>();
+            services.AddTransient<IWeatherService, RedisWeatherService>();
 
             // Add built-in distributed caching to the application... SOOOOOO easy!!
             services.AddDistributedRedisCache(options => { options.Configuration = "127.0.0.1:6379"; });
             
+            // Adding StackExchange.Redis
+            IConnectionMultiplexer multiplexer = ConnectionMultiplexer.Connect(new ConfigurationOptions()
+            {
+                EndPoints =
+                {
+                    { "127.0.0.1", 6379 }
+                },
+                AbortOnConnectFail = false                
+            });
+
+            services.AddSingleton(multiplexer);
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
