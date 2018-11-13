@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Remotion.Linq.Utilities;
+using StackExchange.Redis;
 using WeatherSdk;
 
 namespace RedisApplicationTemplate.Pages
 {
     public class WeatherModel : TimedPageModel
     {
+        //Add Connection Multiplexor for pub / sub
+        private IConnectionMultiplexer Multiplexer { get; }
+        
+
         private IWeatherService weatherSvc;
 
         [BindProperty]
@@ -29,10 +34,28 @@ namespace RedisApplicationTemplate.Pages
         [BindProperty]
         public string ZipCode { get; set; }
 
-        public WeatherModel(IWeatherService svc)
+        public WeatherModel(IWeatherService svc, IConnectionMultiplexer multiplexer)
         {
+            Multiplexer = multiplexer;
             weatherSvc = svc;
         }
+
+        private const string channel = "WEATHER";
+        private const string WEATHER_DATA_FOUND = "Found";
+        private const string WEATHER_DATA_NOT_FOUND = "Not Found";
+
+        /// <summary>
+        /// This method demonstrates the publication
+        /// </summary>
+        private async Task PublishMessage(string zip, string action)
+        {
+            var pub = Multiplexer.GetSubscriber();
+
+            // Publish the action to the channel
+            await pub.PublishAsync(channel, $"Data for zip {zip} {action}");
+          
+        }
+
 
         public async void OnGet()
         {
@@ -47,6 +70,8 @@ namespace RedisApplicationTemplate.Pages
                 return;
             }
 
+            // If we are getting data for a zipcode, then we will notify!
+
             Start();
             var results = await weatherSvc.GetWeather(ZipCode);
             End();
@@ -57,10 +82,15 @@ namespace RedisApplicationTemplate.Pages
                 TownName = results.Name;
                 WindSpeed = results.Wind?.Speed.ToString("0#.##");
                 Temperature = results.Main?.Temp.ToString();
+
+                // Notify!!
+                await PublishMessage(ZipCode, WEATHER_DATA_FOUND);
+
             }
             else
             {
                 Message = $"Data for Zip {ZipCode} not found";
+                await PublishMessage(ZipCode, WEATHER_DATA_NOT_FOUND);
             }
         }
 
