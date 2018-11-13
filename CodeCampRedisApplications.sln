@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherSDK", "WeatherSDK\We
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{CEE30424-3116-4CC0-B40A-ED82A0B55A14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleRedisSubscriber", "ExampleRedisSubscriber\ExampleRedisSubscriber.csproj", "{9399BE3D-CEC5-49F8-A466-50BD57FEA907}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C97CF10-CEAE-4FF3-AD94-20EA4EF84B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9399BE3D-CEC5-49F8-A466-50BD57FEA907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9399BE3D-CEC5-49F8-A466-50BD57FEA907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9399BE3D-CEC5-49F8-A466-50BD57FEA907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9399BE3D-CEC5-49F8-A466-50BD57FEA907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
