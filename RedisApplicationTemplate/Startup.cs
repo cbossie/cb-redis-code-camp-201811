@@ -61,7 +61,7 @@ namespace RedisApplicationTemplate
 
             services.AddSingleton(multiplexer);
 
-
+            services.AddTransient<ICardService, CardService>();
 
         }
 
