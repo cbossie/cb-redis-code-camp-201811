@@ -55,9 +55,7 @@ namespace RedisApplicationTemplate
 
             // Add StackExchange.Redis.Extensions functionality to the application
             var redisConfiguration = Configuration.GetSection("Redis").Get<RedisConfiguration>();
-            services.AddSingleton(redisConfiguration);
-            services.AddSingleton<ICacheClient, StackExchangeRedisCacheClient>();
-            services.AddSingleton<ISerializer, NewtonsoftSerializer>();
+            services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>(redisConfiguration);
 
         }
 
