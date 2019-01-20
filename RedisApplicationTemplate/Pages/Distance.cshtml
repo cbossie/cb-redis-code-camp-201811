@@ -1,0 +1,83 @@
+﻿@page
+@model ExampleWebsiteRedis.Pages.DistanceModel
+@{
+    ViewData["Title"] = "Distance";
+}
+
+<div class="row">
+    <h2>Find Towns within a certain radius of another town in Maine</h2>
+
+
+</div>
+<div class="row">
+    <form method="post" asp-page-handler="distance">
+
+        <div class="form-group">
+            <label>Distance in Miles</label>
+
+
+            <input name="dist" value="@Model.Distance" type="number" />
+
+        </div>
+
+
+        <div class="form-group">
+            <label>Town Name</label>
+
+
+            <input name="town" value="@Model.TownName" type="text" />
+
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Find Towns</button>
+        </div>
+    </form>
+</div>
+
+@if (Model.Success.HasValue)
+{
+    <hr />
+    <text>All towns within @Model.Distance miles of @Model.TownName</text>
+    <div class="row">
+        @if (@Model.Success.Value)
+        {
+            if (Model.Distances.Any())
+            {
+                <table class="table table-striped">
+                   
+                    <tr>
+                        <th>Town</th>
+                        <th>Distance</th>
+                    </tr>
+                        @foreach (var item in Model.Distances.OrderByDescending(a => a.Distance))
+                        {
+                            <tr>
+                                <td>
+                                    @item.MemberName
+                                </td>
+                                <td>
+                                    @item.Distance
+                                </td>
+                            </tr>
+                        }
+                </table>
+            }
+
+
+        }
+        else
+        {
+            <div class="alert-warning">@Model.Message</div>
+        }
+    </div>
+
+    <div class="row">
+        Elapsed Time (ms) = @Model.MillisecondDuration
+    </div>
+
+}
+else
+{
+    <div class="alert-info">@Model.Message</div>
+}
