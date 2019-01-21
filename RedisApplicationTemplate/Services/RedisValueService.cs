@@ -39,7 +39,7 @@ namespace ExampleWebsiteRedis.Services
             }
 
             var result = retrievalFunction?.Invoke();
-            Cache.Set(key, Encoding.UTF8.GetBytes(result));
+            Cache.Set(key, Encoding.UTF8.GetBytes(result), new DistributedCacheEntryOptions { SlidingExpiration = TimeSpan.FromSeconds(30)});
             return result;
         }
 
