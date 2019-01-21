@@ -23,7 +23,7 @@ namespace ExampleWebsiteRedis.Services
             foreach (var line in lines)
             {
                 await DB.SetAddAsync(Key, line);
-            }            
+            }
         }
 
 
