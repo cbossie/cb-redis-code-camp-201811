@@ -47,12 +47,13 @@ namespace RedisApplicationTemplate.Pages
         /// <summary>
         /// This method demonstrates the publication
         /// </summary>
-        private async Task PublishMessage(string zip, string action)
+        private async Task PublishMessage(string zip, string action, string temperature = null)
         {
             var pub = Multiplexer.GetSubscriber();
+            var tempString = temperature == null ? null : $"Temperature = {temperature}";
 
             // Publish the action to the channel
-            await pub.PublishAsync(channel, $"Data for zip {zip} {action}");
+            await pub.PublishAsync(channel, $"Data for zip {zip} {action}. {tempString}");
           
         }
 
@@ -84,7 +85,7 @@ namespace RedisApplicationTemplate.Pages
                 Temperature = results.Main?.Temp.ToString();
 
                 // Notify!!
-                await PublishMessage(ZipCode, WEATHER_DATA_FOUND);
+                await PublishMessage(ZipCode, WEATHER_DATA_FOUND, Temperature);
 
             }
             else
